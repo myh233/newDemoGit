@@ -26,6 +26,15 @@
           overflow: auto
         }
     </style>
+    <script  type="text/javascript">
+    //有道文字识别
+    function Ocr(){
+      var ocr = api.require('ydocr');
+      ocr.setParam({
+        langType: "zh-en",
+      });
+    }
+    </script>
 </head>
 <body>
 <div id="wrap" class="flex-wrap flex-vertical">
@@ -49,7 +58,7 @@
         </ul>
     </div>
 </div>
-<input type="button" value="点击进行文字识别"  onclick="ocr()">
+<input type="button" value="点击进行文字识别"  onclick="Ocr()">
 </body>
 </html>
 <script type="text/javascript" src="script/api.js"></script>
@@ -112,11 +121,4 @@
         });
     }
 
-    //有道文字识别
-    function Ocr(){
-      var ocr = api.require('ydocr');
-      ocr.setParam({
-        langType: "zh-en",
-      });
-    }
 </script>
