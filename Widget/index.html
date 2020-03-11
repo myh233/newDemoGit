@@ -49,6 +49,7 @@
         </ul>
     </div>
 </div>
+<input type="button" value="点击进行文字识别"  onclick="ocr()">
 </body>
 </html>
 <script type="text/javascript" src="script/api.js"></script>
@@ -109,5 +110,13 @@
             name: 'group',
             index: index
         });
+    }
+
+    //有道文字识别
+    function Ocr(){
+      var ocr = api.require('ydocr');
+      ocr.setParam({
+        langType: "zh-en",
+      });
     }
 </script>
