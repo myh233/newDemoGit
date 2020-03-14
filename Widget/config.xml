@@ -5,9 +5,9 @@
     <author email="developer@apicloud.com" href="http://www.apicloud.com">
         Developer
     </author>
-    <content src="index.html" />
+    <content src="index1.html" />
     <access origin="*" />
-    <preference name="pageBounce" value="false"/>    <!--有道文字识别模块-->    <feature name="ydocr">          <param name="7ad49f83c7f0b5cd" value="your android app key" />    </feature>
+    <preference name="pageBounce" value="false"/>    <!--有道文字识别模块-->    <!--<feature name="ydocr">          <param name="7ad49f83c7f0b5cd" value="your android app key" />    </feature>-->
 	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
 	<preference name="windowBackground" value="rgba(0,0,0,0.0)"/>
 	<preference name="frameBackgroundColor" value="rgba(0,0,0,0.0)"/>
