@@ -26,39 +26,30 @@
           overflow: auto
         }
     </style>
-    <script  type="text/javascript">
-    //有道文字识别
-    /*function Ocr(){
-      var ocr = api.require('ydocr');
-      ocr.setParam({
-        langType: "zh-en",
-      });
-    }*/
-    </script>
+
 </head>
 <body>
-<div id="wrap" class="flex-wrap flex-vertical">
-    <header>
-        <ul>
-            <li class="border-b active" >云API</li>
-            <li class="border-b" >端API</li>
-            <li class="border-b" >开发</li>
-            <li class="border-b" >文档</li>
-        </ul>
-    </header>
-    <div id="main" class="flex-con">
+	<div id="wrap" class="flex-wrap flex-vertical">
+		<header>
+			<ul>
+				<li class="border-b active" >云API</li>
+				<li class="border-b" >端API</li>
+				<li class="border-b" >开发</li>
+				<li class="border-b" >文档</li>
+			</ul>
+		</header>
+		<div id="main" class="flex-con">
 
-    </div>
-    <div id="footer" class="border-t">
-        <ul class="flex-wrap" >
-            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con active" >云API</li>
-            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >端API</li>
-            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >开发</li>
-            <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >文档</li>
-        </ul>
-    </div>
-</div>
-<!--<input type="button" value="点击进行文字识别"  onclick="Ocr()">-->
+		</div>
+		<div id="footer" class="border-t">
+			<ul class="flex-wrap" >
+				<li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con active" >云API</li>
+				<li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >端API</li>
+				<li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >开发</li>
+				<li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con" >文档</li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>
 <script type="text/javascript" src="script/api.js"></script>
@@ -120,5 +111,4 @@
             index: index
         });
     }
-
 </script>
