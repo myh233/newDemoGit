@@ -1,30 +1,0 @@
- <widget id="A6038101288292"  version="0.0.1">    <name>平安校园管理APP</name>
-    <description>
-        Example For APICloud.
-    </description>
-    <author email="developer@apicloud.com" href="http://www.apicloud.com">
-        Developer
-    </author>
-    <content src="index.html" />
-    <access origin="*" />
-    <preference name="pageBounce" value="false"/>    <!--百度文字识别模块-->    <feature name="baiduTextReader">        <param name="apiKey" value="QB5xtL7PYCTj2VIsWDEk0l5D"/>        <param name="secretKey" value="QpjqFncYdp8i5kftEYQwFyAUjbY23k9v"/>    </feature>    <!--有道文字识别模块-->    <!--<feature name="ydocr">          <param name="7ad49f83c7f0b5cd" value="your android app key" />    </feature>-->
-	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
-	<preference name="windowBackground" value="rgba(0,0,0,0.0)"/>
-	<preference name="frameBackgroundColor" value="rgba(0,0,0,0.0)"/>
-	<preference name="hScrollBarEnabled" value="false"/>
-	<preference name="vScrollBarEnabled" value="false"/>
-	<preference name="autoLaunch" value="true"/>
-	<preference name="fullScreen" value="false"/>
-	<preference name="autoUpdate" value="true" />
-	<preference name="smartUpdate" value="false" />
-	<preference name="debug" value="true"/>
-	<preference name="statusBarAppearance" value="true"/>
-	<permission name="readPhoneState" />
-	<permission name="camera" />
-	<permission name="record" />
-	<permission name="location" />
-	<permission name="fileSystem" />
-	<permission name="internet" />
-	<permission name="bootCompleted" />
-	<permission name="hardware" />
-</widget>
