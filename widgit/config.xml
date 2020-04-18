@@ -6,11 +6,11 @@
     <author email="developer@apicloud.com" href="http://www.apicloud.com">
         Developer
     </author>
-    <content src="./html/reg.html" />
+    <content src="shenfenshibie.html" />
     <access origin="*" />    <!--baiduIdentifyOCR配置-->
     <feature name="baiduIdentifyOCR">
-        <param name="APIKey" value="QB5xtL7PYCTj2VIsWDEk0l5D"/>
-        <param name="SecretKey" value="QpjqFncYdp8i5kftEYQwFyAUjbY23k9v"/>
+        <param name="APIKey" value="OrUKEmZQpta9L8ayjNz4cI6l"/>
+        <param name="SecretKey" value="37wGIoNNU2Luzx6NGg3QWmyOshXF0KLE"/>
     </feature>
 
     <preference name="pageBounce" value="false"/>
