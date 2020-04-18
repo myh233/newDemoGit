@@ -9,8 +9,8 @@
     <content src="shenfenshibie.html" />
     <access origin="*" />    <!--baiduIdentifyOCR配置-->
     <feature name="baiduIdentifyOCR">
-        <param name="APIKey" value="OrUKEmZQpta9L8ayjNz4cI6l"/>
-        <param name="SecretKey" value="37wGIoNNU2Luzx6NGg3QWmyOshXF0KLE"/>
+          <param name="APIKey" value="dggiGNCFd7ZiYd5uyM4QlQS8"/>
+          <param name="SecretKey" value="Az0Qy4IWw4L4PX2XpBmvXTSq7WHHvz9S"/>
     </feature>
 
     <preference name="pageBounce" value="false"/>
