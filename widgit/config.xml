@@ -6,7 +6,7 @@
     <author email="developer@apicloud.com" href="http://www.apicloud.com">
         Developer
     </author>
-    <content src="shibie.html" />
+    <content src="index.html" />
     <access origin="*" />
     <!--baiduIdentifyOCR配置-->
    <feature name="baiduIdentifyOCR">
