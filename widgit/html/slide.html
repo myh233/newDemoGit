@@ -80,9 +80,6 @@
     //apiready = function() {
 
     //};
-    window.onload = function(){
-      bdInit()
-    }
     //身份识别初始化
     function bdInit() {
       var baiduAd = api.require('baiduIdentifyOCR');
@@ -90,6 +87,8 @@
           alert(JSON.stringify(ret));
       });
     }
+
+    window.onload = bdInit;
 
     //身份证正面识别
     function identifyIDFace() {
