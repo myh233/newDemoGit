@@ -38,7 +38,7 @@
           height:180px;
           /*background-image: url("../image/photo.jpg");*/
         }
-        button {
+        #bt1,#bt2,#bt3{
             padding: 10px;
             margin: 10px;
             background-color: green;
@@ -77,14 +77,10 @@
 	};
 </script>
 <script type="text/javascript">
-    apiready = function() {
+    //apiready = function() {
 
-    };
+    //};
 
-    var baiduAd = api.require('baiduIdentifyOCR');
-    baiduAd.init(function(ret,err){
-        alert(JSON.stringify(ret));
-    });
     //身份识别初始化
     function bdInit() {
       var baiduAd = api.require('baiduIdentifyOCR');
