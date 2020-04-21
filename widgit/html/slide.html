@@ -91,6 +91,8 @@
 
     //身份证正面识别
     function identifyIDFace() {
+        bdInit()
+
         var baiduAd = api.require('baiduIdentifyOCR');
         baiduAd.identifyIDFace(function(ret) {
             alert(JSON.stringify(ret));
@@ -99,6 +101,8 @@
 
     //身份证背面识别
     function identifyIDBack() {
+        bdInit()
+
         var baiduAd = api.require('baiduIdentifyOCR');
         baiduAd.identifyIDBack(function(ret) {
             alert(JSON.stringify(ret));
@@ -107,6 +111,8 @@
 
     //驾驶证识别
     function drivingLicenseOCR(){
+        bdInit()
+
         var baiduAd = api.require('baiduIdentifyOCR');
         baiduAd.drivingLicenseOCR(function(ret){
            alert(JSON.stringify(ret));
