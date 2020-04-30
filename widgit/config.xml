@@ -5,7 +5,10 @@
     </description>
     <author email="developer@apicloud.com" href="http://www.apicloud.com">
         Developer
-    </author>
+    </author>    <!--百度文字识别-->    <feature name="baiduIdentifyOCR">
+        <param name="APIKey" value="E9v68McXyNIwqz4X846UmaPo"/>
+        <param name="SecretKey" value="7tnauoLn6QwKKPOaMH0APWMaiSFK3cby"/>
+    </feature>
     <content src="index.html" />
     <access origin="*" />
     <preference name="pageBounce" value="false"/>
