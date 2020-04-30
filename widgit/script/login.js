@@ -1,72 +1,50 @@
 //登录函数
 function login(){
-  jump();
-  var model = api.require('model');
-  model.config({
-    appKey: '74C42CC5-1778-E823-BCD7-B12A156D2696',
-		appId: 'A6038101288292',
-    host: 'https://d.apicloud.com'
-  });
-  var username=document.getElementById('username').value;
-  var password=document.getElementById('password').value;
-  model.({
-    userId:value1,
-    password:value2
-  },function(ret,err){
-    if(ret){
-       alert( JSON.stringify( ret ) );
-    }else{
-       alert( JSON.stringify( err ) );
-    }
-  });
+    var username=document.getElementById('username').value;
+    var password=document.getElementById('password').value;
+		var model = api.require('model');
+		var query = api.require('query');
+		model.config({
+			appId : 'A6038101288292',
+			appKey : '74C42CC5-1778-E823-BCD7-B12A156D2696',
+			host : 'https://d.apicloud.com'
+		});
+		query.createQuery(function(ret, err) {
+			if (ret && ret.qid) {
+				//console.log(ret.qid);
+				query.whereEqual({
+					qid : ret.qid,
+					column : 'username',
+					value : username
+				});
+				query.whereEqual({
+					qid : ret.qid,
+					column : 'password',
+					value : password
+				});
+				model.findAll({
+					class : 'App_user',
+					qid : ret.qid
+				},function(ret, err) {
+          if(ret.length>0){
+              url = "frame2.html?name="+username;
+              location.href=url;
+              localStorage.setItem("usna",username);
+              danwei = ret[0].danwei;
+              zhicheng = ret[0].zhicheng;
+              localStorage.setItem("danwei",danwei);
+              localStorage.setItem("zhicheng",zhicheng);
+              //alert("登录成功")
+          }
+          else{
+              alert("用户名或密码错误")
+          }
+				});
+			}
+		});
 }
 
-
-//数据库测试
-/*
-apiready = function(){
-  //配置config
-  var model = api.require('model');
-  model.config({
-      appKey: '74C42CC5-1778-E823-BCD7-B12A156D2696',
-      host: 'https://d.apicloud.com'
-  });
-  //数据插入
-  model.insert({
-    class: 'list',
-    value: {
-         name : '梅宇航',
-         age : 30
-    }
-  }, function(ret, err){
-    if( ret ){
-         alert( JSON.stringify( ret ) );
-    }else{
-         alert( JSON.stringify( err ) );
-    }
-  });
-}*/
-//数据查询
-
-apiready = function(){
-  //配置config
-  var model = api.require('model');
-  var query = api.require('query');  //查询对象
-  model.config({
-      appKey: '74C42CC5-1778-E823-BCD7-B12A156D2696',
-      appId: 'A6038101288292',
-      host: 'https://d.apicloud.com'
-  });
-  query.createQuery({
-  },function(ret,err){
-    if(ret&&ret.qid){
-      model.findAll({
-          class: "list",
-          qid: ret.qid
-      }, function( ret, err ) {
-          alert(ret[0].name)
-      });
-    }
-  }
-  )
+function quxiao(){
+  url = "frame2.html?name=";
+  location.href=url;
 }

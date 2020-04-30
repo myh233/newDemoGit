@@ -15,18 +15,10 @@
 				<div id="password_text">密码</div>
 				<input type="text" id="username" placeholder="请输入用户名"/>
 				<input type="password" id="password" placeholder="请输入密码"/>
-        <!--<div id="defeat"><span>{{msg}}</span></div>-->
-			</div>
-<!--验证  -->
-			<div class="yanzhen">
-				<div id="yanzhen">
-					<input type = "text" id = "input" placeholder="请输入验证码" />
-					<input type = "button" id="code" οnclick="createCode()" />
-				</div>
 			</div>
 
-			<button type="button" id="but_login" onclick="validate()" >登录</button>
-			<button type="reset" id="but_clogin">取消</button>
+			<button type="button" id="but_login" onclick="login()" >登录</button>
+			<button type="reset" id="but_clogin" onclick="quxiao()">取消</button>
 		</form>
 	</div>
 </body>

@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>我的</title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        #top{
+          width:auto;
+          height:;
+        }
+    </style>
+
+    <style type="text/css">
+        .text-white {
+            color: #ffffff !important;
+        }
+        .aui-grid [class*=aui-col-] {
+            padding: 0.75rem 0;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 顶部 -->
+    <section class="aui-content" id="user-info">
+        <div class="aui-list aui-media-list aui-list-noborder aui-bg-info" id="top" onclick="window.open('login.html')">
+            <div class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner ">
+                    <div class="aui-list-item-media" style="width:3rem;">
+                        <img src="../image/share/qq.png" class="aui-img-round">
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        <div class="text-white aui-font-size-16" id="user_name">用户名:</div>
+                        <div class="aui-list-item-text text-white aui-font-size-14" id="danwei">单位:</div>
+                        <div class="aui-list-item-text text-white aui-font-size-14" id="zhicheng">职称:</div>
+                        <!--<div class="aui-list-item-text text-white">
+                           <div id="zhicheng"><i class="aui-font-size-14"></i>职称:</div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="aui-content">
+        <ul class="aui-list aui-list-in aui-margin-b-15">
+            <li class="aui-list-item" onclick="window.open('message.html')">
+                <div class="aui-list-item-label-icon">
+                    <!--<i class="aui-iconfont aui-icon-location aui-text-info"></i>-->
+                    <img src="../image/msg.png" width="25px" height="25px">
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">完善个人信息</div>
+                </div>
+            </li>
+            <li class="aui-list-item" onclick="window.open('reg.html')">
+                <div class="aui-list-item-label-icon">
+                    <!--<i class="aui-iconfont aui-icon-location aui-text-info"></i>-->
+                    <img src="../image/reg.png" width="25px" height="25px">
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">注册新用户</div>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="aui-list aui-list-in">
+            <li class="aui-list-item" onclick="window.open('change_password.html')">
+                <div class="aui-list-item-label-icon">
+                    <!--<i class="aui-iconfont aui-icon-cart aui-text-info"></i>-->
+                    <img src="../image/suo.png" width="25px" height="25px">
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">修改密码</div>
+                    <!--<div class="aui-list-item-right">0元好物在这里</div>-->
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <!--<i class="aui-iconfont aui-icon-cert aui-text-warning"></i>-->
+                    <img src="../image/help.png" width="25px" height="25px">
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">帮助</div>
+                    <!--<div class="aui-list-item-right">未开通</div>-->
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <!--<i class="aui-iconfont aui-icon-cert aui-text-warning"></i>-->
+                    <img src="../image/fankui.png" width="20px" height="20px">
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">反馈</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-label-icon">
+                    <!--<i class="aui-iconfont aui-icon-cert aui-text-warning"></i>-->
+                    <img src="../image/guanyu.png" width="25px" height="25px">
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">关于</div>
+                </div>
+            </li>
+            <li class="aui-list-item" onclick="log_out()">
+                <div class="aui-list-item-label-icon">
+                    <!--<i class="aui-iconfont aui-icon-cert aui-text-warning"></i>-->
+                    <img src="../image/logout.png" width="25px" height="25px">
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-title">退出登录</div>
+                </div>
+            </li>
+        </ul>
+    </section>
+</body>
+<script type="text/javascript" src="../script/api.js" ></script>
+<script type="text/javascript">
+    /*apiready = function () {
+    }*/
+</script>
+<script type="text/javascript">
+    apiready = function (){  //自动执行函数
+          shuaxin();
+    }
+    function ceshi(username){
+      var model = api.require('model');
+      var query = api.require('query');
+      model.config({
+        appId : 'A6038101288292',
+        appKey : '74C42CC5-1778-E823-BCD7-B12A156D2696',
+        host : 'https://d.apicloud.com'
+      });
+      query.createQuery(function(ret, err) {
+        if (ret && ret.qid) {
+          //console.log(ret.qid);
+          query.whereEqual({
+            qid : ret.qid,
+            column : 'username',
+            value : username
+          });
+          model.findAll({
+            class : 'App_user',
+            qid : ret.qid
+          },function(ret, err) {
+            if(ret.length>0){
+                danwei = ret[0].danwei;
+                //alert(danwei);
+                zhicheng = ret[0].zhicheng;
+                //alert(zhicheng);
+                localStorage.setItem("danwei",danwei);
+                localStorage.setItem("zhicheng",zhicheng);
+            }
+          });
+        }
+      });
+    }
+
+    var username = localStorage.getItem("usna");
+    function shuaxin(){
+      if(username){
+        document.getElementById('user_name').innerHTML="用户名:"+username;
+        ceshi(username);
+      }
+    }
+
+    /*else{
+      document.getElementById('user_name').innerHTML="用户名:";
+      document.getElementById('danwei').innerHTML="单位:";
+      document.getElementById('zhicheng').innerHTML="用户名:";
+    }*/
+
+
+
+    danwei = localStorage.getItem("danwei");
+    zhicheng = localStorage.getItem("zhicheng");
+    if(danwei){
+      document.getElementById('danwei').innerHTML="单位:"+danwei;
+    }
+    if(zhicheng){
+      document.getElementById('zhicheng').innerHTML="职称:"+zhicheng;
+    }
+
+    function log_out(){
+      localStorage.clear();
+      document.getElementById('user_name').innerHTML="用户名:";
+      document.getElementById('danwei').innerHTML="单位:";
+      document.getElementById('zhicheng').innerHTML="职称:";
+    }
+</script>
+</html>
+<!--<script type="text/javascript">
+
+</script>-->

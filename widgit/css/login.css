@@ -121,12 +121,3 @@ button:active{
 	position:relative;
 	left:135px;
 }
-
-
-/*登录失败提示语*/
-#defeat{
-    position: relative;
-    left:68px;
-    top:-51px;
-    color:red;
-}

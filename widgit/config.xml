@@ -1,5 +1,5 @@
- <widget id="A6030428495991"  version="0.0.1">
-    <name>平安校园管理APP</name>
+ <widget id="A6032077390710"  version="0.0.1">
+    <name>校园管理</name>
     <description>
         Example For APICloud.
     </description>
@@ -8,12 +8,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <!--baiduIdentifyOCR配置-->
-   <feature name="baiduIdentifyOCR">
-         <param name="APIKey" value="ydNCf7wcHbEtESODerSpXYGo"/>
-         <param name="SecretKey" value="3ETg14v6yMqtzcAS7m5r116zVuMGDqZ6"/>
-   </feature>
-
     <preference name="pageBounce" value="false"/>
 	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
 	<preference name="windowBackground" value="rgba(0,0,0,0.0)"/>
