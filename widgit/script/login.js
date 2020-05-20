@@ -32,8 +32,13 @@ function login(){
               localStorage.setItem("usna",username);
               danwei = ret[0].danwei;
               zhicheng = ret[0].zhicheng;
-              localStorage.setItem("danwei",danwei);
-              localStorage.setItem("zhicheng",zhicheng);
+              if(danwei != null){
+                localStorage.setItem("danwei",danwei);
+              }
+              if(zhicheng != null){
+                localStorage.setItem("zhicheng",zhicheng);
+              }
+
               //alert("登录成功")
           }
           else{

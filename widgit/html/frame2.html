@@ -153,8 +153,12 @@
                 //alert(danwei);
                 zhicheng = ret[0].zhicheng;
                 //alert(zhicheng);
-                localStorage.setItem("danwei",danwei);
-                localStorage.setItem("zhicheng",zhicheng);
+                if(danwei != null){
+                  localStorage.setItem("danwei",danwei);
+                }
+                if(zhicheng != null){
+                  localStorage.setItem("zhicheng",zhicheng);
+                }
             }
           });
         }
@@ -169,20 +173,13 @@
       }
     }
 
-    /*else{
-      document.getElementById('user_name').innerHTML="用户名:";
-      document.getElementById('danwei').innerHTML="单位:";
-      document.getElementById('zhicheng').innerHTML="用户名:";
-    }*/
-
-
 
     danwei = localStorage.getItem("danwei");
     zhicheng = localStorage.getItem("zhicheng");
-    if(danwei){
+    if(danwei !=null){
       document.getElementById('danwei').innerHTML="单位:"+danwei;
     }
-    if(zhicheng){
+    if(zhicheng !=null){
       document.getElementById('zhicheng').innerHTML="职称:"+zhicheng;
     }
 

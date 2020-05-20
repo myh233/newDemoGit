@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>完善信息</title>
-    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/message.css" />
 		<script type="text/javascript">
 				function submit(){
 						var username = localStorage.getItem("usna");
@@ -84,31 +84,21 @@
 						}
 					}
 		</script>
-		<style tyle="text/css">
-			#danwei,#zhicheng{
-				margin-left: 20px;
-				margin-top: 20px;
-				padding: 20px;
-				outline-style: none ; /*取消外边框*/
-			  border: 1px solid #ccc;
-				border-radius: 3px;
-				padding: 13px 14px;
-				font-size: 15px;
-				font-family: "Microsoft soft";
-				width:200px;
-				height: 40px;
-			}
-			#bt1,#bt2{
-				margin-left: 40px;
-				margin-top: 30px;
-			}
-		</style>
 	</head>
 	<body>
-		<input id="danwei" type="text" placeholder="请输您的单位名称"></input>
-		<input id="zhicheng" type="text" placeholder="请输您的职称"></input>
+		<div class="login_frame">
+			<p id="image_logo"><img src="../image/logo.png" style="width:140px;height: 90px;"></p>
+			<form  method="post" id="myform">
+				<div class="text_field">
+					<div id="danwei">单位</div>
+					<div id="zhicheng">职称</div>
+					<input type="text" id="danwei_input" placeholder="请输入你的单位名称"/>
+					<input type="text" id="zhicheng_input" placeholder="请输入你的职称"/>
+				</div>
 
-    <button id="bt1" onclick="submit()">提交</button>
-    <button id="bt2" onclick="window.open('frame2.html')">取消</button>
+				<button type="button" id="but_submit" onclick="submit()" >提交</button>
+				<button type="reset" id="but_cancel" onclick="window.open('frame2.html')">取消</button>
+			</form>
+		</div>
 	</body>
 </html>

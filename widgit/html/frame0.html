@@ -53,8 +53,8 @@
           text-align:center;
           margin:0 auto;
           position:absolute;
-    			left:181px;
-    			top:-1px;
+    			left:182px;
+    			top:295px;
           height:79px;
     			width:176px;
           border:0.5px solid #8a8a8a;
@@ -75,21 +75,21 @@
           <p>身份证正面识别</p>
         </div>
       </div>
-      <dvi id="bt2" onclick="identifyIDBack()">
+      <div id="bt2" onclick="identifyIDBack()">
         <div id="div1">
-          <img src="../image/idcard.png" height:55;width:55/>
+          <img src="../image/idcard.png"/>
           <p>身份证背面识别</p>
         </div>
       </div>
-      <dvi id="bt3" onclick="generalBasicOCR()">
+      <div id="bt3" onclick="generalBasicOCR()">
         <div id="div1">
-          <img src="../image/licenceplateOCR.png" height:55; width:55/>
+          <img src="../image/licenceplateOCR.png"/>
           <p>车牌识别</p>
         </div>
       </div>
-      <dvi id="bt4" onclick="drivingLicenseOCR()">
+      <div id="bt4" onclick="drivingLicenseOCR()">
         <div id="div1">
-          <img src="../image/drivingLicenseOCR.png" height:45;width:45;/>
+          <img src="../image/drivingLicenseOCR.png"/>
           <p>驾驶证识别</p>
         </div>
       </div>
@@ -112,11 +112,12 @@
     	};
     </script>
     <script type="text/javascript">
-        apiready = function() {
+        /*apiready = function() {
             bdInit();
-        };
+          }
+        };*/
         //身份识别初始化
-        username = localStorage.getItem("usna");
+
         function bdInit() {
           var baiduAd = api.require('baiduIdentifyOCR');
           baiduAd.init(function(ret,err){
@@ -127,53 +128,32 @@
         //window.onload = bdInit;
         //身份证正面识别
         function identifyIDFace() {
-          if(username){
-            var baiduAd = api.require('baiduIdentifyOCR');
-            baiduAd.identifyIDFace(function(ret) {
-                alert(JSON.stringify(ret));
-            });
-          }
-          else{
-            alert("请先注册登录");
-          }
+          var baiduAd = api.require('baiduIdentifyOCR');
+          baiduAd.identifyIDFace(function(ret) {
+              alert(JSON.stringify(ret));
+          });
         }
         //身份证背面识别
         function identifyIDBack() {
-          if(username){
-            var baiduAd = api.require('baiduIdentifyOCR');
-            baiduAd.identifyIDBack(function(ret) {
-                alert(JSON.stringify(ret));
-            });
-          }
-          else{
-            alert("请先注册登录");
-          }
+          var baiduAd = api.require('baiduIdentifyOCR');
+          baiduAd.identifyIDBack(function(ret) {
+              alert(JSON.stringify(ret));
+          });
         }
         //通用文字识别
-        function generalBasicOCR() {
-          if(username){
-            var baiduAd = api.require('baiduIdentifyOCR');
-            baiduAd.generalBasicOCR(function(ret) {
-                alert(JSON.stringify(ret));
-            });
-          }
-          else{
-            alert("请先注册登录");
-          }
+        function generalAccurateBasicOCR() {
+          var baiduAd = api.require('baiduIdentifyOCR');
+          baiduAd.generalAccurateBasicOCR(function(ret) {
+              alert(JSON.stringify(ret));
+          });
         }
         //驾驶证识别
         function drivingLicenseOCR(){
-          if(username){
-            var baiduAd = api.require('baiduIdentifyOCR');
-            baiduAd.drivingLicenseOCR(function(ret){
-               alert(JSON.stringify(ret));
-            });
-          }
-          else{
-            alert("请先注册登录");
-          }
+          var baiduAd = api.require('baiduIdentifyOCR');
+          baiduAd.drivingLicenseOCR(function(ret){
+             alert(JSON.stringify(ret));
+          });
        }
-
     </script>
 </body>
 </html>
