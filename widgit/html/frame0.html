@@ -112,10 +112,11 @@
     	};
     </script>
     <script type="text/javascript">
-        /*apiready = function() {
+        var username = localStorage.getItem("usna");
+        apiready = function() {
             bdInit();
           }
-        };*/
+        };
         //身份识别初始化
 
         function bdInit() {
@@ -128,31 +129,51 @@
         //window.onload = bdInit;
         //身份证正面识别
         function identifyIDFace() {
-          var baiduAd = api.require('baiduIdentifyOCR');
-          baiduAd.identifyIDFace(function(ret) {
-              alert(JSON.stringify(ret));
-          });
+          if(username){
+            var baiduAd = api.require('baiduIdentifyOCR');
+            baiduAd.identifyIDFace(function(ret) {
+                alert(JSON.stringify(ret));
+            });
+          }
+          else{
+            alert("请先登录");
+          }
         }
         //身份证背面识别
         function identifyIDBack() {
-          var baiduAd = api.require('baiduIdentifyOCR');
-          baiduAd.identifyIDBack(function(ret) {
-              alert(JSON.stringify(ret));
-          });
+          if(username){
+            var baiduAd = api.require('baiduIdentifyOCR');
+            baiduAd.identifyIDBack(function(ret) {
+                alert(JSON.stringify(ret));
+            });
+          }
+          else{
+            alert("请先登录");
+          }
         }
         //通用文字识别
         function generalAccurateBasicOCR() {
-          var baiduAd = api.require('baiduIdentifyOCR');
-          baiduAd.generalAccurateBasicOCR(function(ret) {
-              alert(JSON.stringify(ret));
-          });
+          if(username){
+            var baiduAd = api.require('baiduIdentifyOCR');
+            baiduAd.generalAccurateBasicOCR(function(ret) {
+                alert(JSON.stringify(ret));
+            });
+          }
+          else{
+            alert("请先登录");
+          }
         }
         //驾驶证识别
         function drivingLicenseOCR(){
-          var baiduAd = api.require('baiduIdentifyOCR');
-          baiduAd.drivingLicenseOCR(function(ret){
-             alert(JSON.stringify(ret));
-          });
+          if(username){
+            var baiduAd = api.require('baiduIdentifyOCR');
+            baiduAd.drivingLicenseOCR(function(ret){
+               alert(JSON.stringify(ret));
+            });
+          }
+          else{
+            alert("请先登录");
+          }
        }
     </script>
 </body>
