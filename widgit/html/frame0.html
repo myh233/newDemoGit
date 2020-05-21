@@ -60,6 +60,17 @@
           border:0.5px solid #8a8a8a;
           background-color: #cdcdcd;
         }
+        #bt5{
+          text-align:center;
+          margin:0 auto;
+          position:absolute;
+    			left:182px;
+    			top:376px;
+          height:79px;
+    			width:176px;
+          border:0.5px solid #8a8a8a;
+          background-color: #cdcdcd;
+        }
         #div1{
           margin-top: 5px;
         }
@@ -91,6 +102,12 @@
         <div id="div1">
           <img src="../image/drivingLicenseOCR.png"/>
           <p>驾驶证识别</p>
+        </div>
+      </div>
+      <div id="bt5" onclick="singleLocation();reloadPage();">
+        <div id="div1">
+          <img src="../image/drivingLicenseOCR.png"/>
+          <p>单次地址</p>
         </div>
       </div>
     </div>
@@ -182,6 +199,32 @@
           else{
             alert("请先登录");
           }
+       }
+
+
+       //定位功能实现
+       function configManager(){ //配置定位信息
+         var aMapLBS = api.require('aMapLBS');
+         aMapLBS.configManager({
+            accuracy: 'hundredMeters',
+            filter: 1
+         }, function(ret, err) {
+            if (ret.status) {
+                alert('定位管理器初始化成功！');
+            }
+         });
+       }
+
+       //单次地理定位
+       function singleLocation(){
+         var aMapLBS = api.require('aMapLBS');
+         aMapLBS.singleLocation({
+            timeout: 10
+         }, function(ret, err) {
+            if (ret.status) {
+               alert(JSON.stringify(ret));
+            }
+         });
        }
     </script>
 </body>
