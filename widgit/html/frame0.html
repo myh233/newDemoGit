@@ -110,7 +110,6 @@
     	};
     </script>
     <script type="text/javascript">
-        var username = localStorage.getItem("usna");
         apiready = function() {
             bdInit();
         };
@@ -128,9 +127,10 @@
           });
         }
 
-        //window.onload = bdInit;
         //身份证正面识别
         function identifyIDFace() {
+          reloadPage();
+          var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.identifyIDFace(function(ret) {
@@ -143,6 +143,8 @@
         }
         //身份证背面识别
         function identifyIDBack() {
+          reloadPage();
+          var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.identifyIDBack(function(ret) {
@@ -155,6 +157,8 @@
         }
         //通用文字识别
         function generalAccurateBasicOCR() {
+          reloadPage();
+          var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.generalAccurateBasicOCR(function(ret) {
@@ -167,6 +171,8 @@
         }
         //驾驶证识别
         function drivingLicenseOCR(){
+          reloadPage();
+          var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.drivingLicenseOCR(function(ret){
