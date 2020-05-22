@@ -60,17 +60,19 @@
           border:0.5px solid #8a8a8a;
           background-color: #cdcdcd;
         }
-        #bt5{
-          text-align:center;
+        #address{
+          /*text-align:center;*/
           margin:0 auto;
           position:absolute;
-    			left:182px;
-    			top:376px;
+    			left:0px;
+    			top:540px;
           height:79px;
-    			width:176px;
-          border:0.5px solid #8a8a8a;
-          background-color: #cdcdcd;
+    			width:100%;
+          font-size:16px;
+          /*border:0.5px solid #8a8a8a;*/
+          /*background-color: #cdcdcd;*/
         }
+
         #div1{
           margin-top: 5px;
         }
@@ -104,16 +106,9 @@
           <p>驾驶证识别</p>
         </div>
       </div>
-      <div id="bt5" onclick="fnSingleAddress();reloadPage();">
-        <div id="div1">
-          <img src="../image/drivingLicenseOCR.png"/>
-          <p>单次地址</p>
-        </div>
-      </div>
     </div>
-    <div id = "address" onclick="">
-      <p>当前位置</p>
-      <
+    <div id = "address" onclick="fnSingleAddress()">
+      <span id = "sp">当前位置</span>
     </div>
 
     <script type="text/javascript" src="../script/api.js"></script>
@@ -222,8 +217,10 @@
    				timeout : 10
    			}, function(ret, err) {
    				if (ret.status) {
-            address =  ret.address.formattedAddress;
-   					alert(address);
+            address =  ret.address.formattedAddress; //获取的地址
+            var span = document.getElementById("sp");
+            span.innerHTML = "当前位置："+address;
+   					//alert(address);
    				}
    			});
    		}
