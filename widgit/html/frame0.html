@@ -111,6 +111,10 @@
         </div>
       </div>
     </div>
+    <div id = "address" onclick="">
+      <p>当前位置</p>
+      <
+    </div>
 
     <script type="text/javascript" src="../script/api.js"></script>
     <script>
@@ -203,36 +207,22 @@
 
 
        //定位功能实现
-       function fnSingleAddress(){ //配置定位信息
-         var aMapLBS = api.require('aMapLBS');
-         aMapLBS.configManager({
-            accuracy: 'hundredMeters',
-            filter: 1
-         },function(ret,err){
-           if(ret.status){
-             aMapLBS.singleAddress({
-        				timeout : 10
-        			},function(ret,err){
-                if (ret.status) {
-                  alert(ret.address[formattedAddress]);
-                  alert("yi");
-                  address = ret.formattedAddress;
-         					alert(address);
-                  alert("er");
-         				}
-              }
-           }
-         });
-       }
-
+       function fnConfigManager() {
+   			var aMapLBS = api.require('aMapLBS');
+   			aMapLBS.configManager({
+   				accuracy : 'hundredMeters',
+   				filter : 1
+   			});
+   		}
        //单次地理定位
        function fnSingleAddress() {
+        fnConfigManager();
    			var aMapLBS = api.require('aMapLBS');
    			aMapLBS.singleAddress({
    				timeout : 10
    			}, function(ret, err) {
    				if (ret.status) {
-            address = ret.formattedAddress;
+            address =  ret.address.formattedAddress;
    					alert(address);
    				}
    			});

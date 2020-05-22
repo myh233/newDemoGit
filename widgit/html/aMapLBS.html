@@ -99,13 +99,15 @@
 		}
 
 		function fnSingleLocation() {
+			fnConfigManager()
 			var aMapLBS = api.require('aMapLBS');
 			aMapLBS.singleAddress({
 				timeout : 10
 			}, function(ret, err) {
 				if (ret.status) {
 					alert(JSON.stringify(ret));
-					alert(ret.address.formattedAddress);				}
+					alert(ret.address.formattedAddress);
+				}
 			});
 		}
 	</script>
