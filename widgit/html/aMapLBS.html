@@ -78,7 +78,7 @@
 			});
 		}
 
-		function fnSingleLocation() {
+		function fnSingleLocation1() {
 			var aMapLBS = api.require('aMapLBS');
 			aMapLBS.configManager({
 				accuracy : 'hundredMeters',
@@ -98,13 +98,16 @@
 
 		}
 
-		function fnSingleLocation1() {
+		function fnSingleLocation() {
 			var aMapLBS = api.require('aMapLBS');
 			aMapLBS.singleLocation({
 				timeout : 10
 			}, function(ret, err) {
 				if (ret.status) {
 					alert(JSON.stringify(ret));
+					alert(ret.address);
+					alert(ret.formattedAddress);
+					alert(ret.address[formattedAddress]);
 				}
 			});
 		}
