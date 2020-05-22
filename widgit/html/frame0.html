@@ -108,7 +108,7 @@
       </div>
     </div>
     <div id = "address" onclick="fnSingleAddress()">
-      <span id = "sp">当前位置</span>
+      <span id = "sp">当前位置:</span>
     </div>
 
     <script type="text/javascript" src="../script/api.js"></script>
@@ -208,22 +208,30 @@
    				accuracy : 'hundredMeters',
    				filter : 1
    			});
-   		}
+   		 }
        //单次地理定位
        function fnSingleAddress() {
-        fnConfigManager();
-   			var aMapLBS = api.require('aMapLBS');
-   			aMapLBS.singleAddress({
-   				timeout : 10
-   			}, function(ret, err) {
-   				if (ret.status) {
-            address =  ret.address.formattedAddress; //获取的地址
-            var span = document.getElementById("sp");
-            span.innerHTML = "当前位置："+address;
-   					//alert(address);
-   				}
-   			});
-   		}
+         reloadPage();
+         var username = localStorage.getItem("usna");
+         if(username){
+           fnConfigManager();
+     			 var aMapLBS = api.require('aMapLBS');
+     			 aMapLBS.singleAddress({
+     				 timeout : 10
+     			 }, function(ret, err) {
+     				 if (ret.status) {
+               address =  ret.address.formattedAddress; //获取的地址
+               localStorage.setItem("address",address);
+               var span = document.getElementById("sp");
+               span.innerHTML = "当前位置:<br/>"+address;
+     					 //alert(address);
+     				 }
+     			 });
+         }
+         else{
+           alert("请先登录");
+         }
+   		 }
     </script>
 </body>
 </html>
