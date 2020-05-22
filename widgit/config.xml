@@ -21,7 +21,7 @@
         <param name="channel" value="17d3ea252e685d947a2911ac"/>
     </feature>
 
-    <content src="./html/tuisong.html" />
+    <content src="index.html" />
     <access origin="*" />
     <preference name="pageBounce" value="false"/>
 	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
