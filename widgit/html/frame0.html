@@ -104,7 +104,7 @@
           <p>驾驶证识别</p>
         </div>
       </div>
-      <div id="bt5" onclick="loadPosition();reloadPage();">
+      <div id="bt5" onclick="fnSingleAddress();reloadPage();">
         <div id="div1">
           <img src="../image/drivingLicenseOCR.png"/>
           <p>单次地址</p>
@@ -129,6 +129,7 @@
     <script type="text/javascript">
         apiready = function() {
             bdInit();
+            configManager();
         };
 
         function reloadPage()
@@ -208,59 +209,21 @@
          aMapLBS.configManager({
             accuracy: 'hundredMeters',
             filter: 1
-         }, function(ret, err) {
-            if (ret.status) {
-                alert('定位管理器初始化成功！');
-            }
          });
        }
 
        //单次地理定位
-       function singleLocation(){
-         var aMapLBS = api.require('aMapLBS');
-         aMapLBS.singleLocation({
-            timeout: 10
-         }, function(ret, err) {
-            if (ret.status) {
-               alert(JSON.stringify(ret));
-            }
-         });
-       }
-       function loadPosition(){
-         alert("你好");
-        	var aMapLBS = api.require('aMapLBS');//引入模块
-        	//配置定位信息
-        	aMapLBS.configManager({
-        	    accuracy: 'hundredMeters',
-        	    filter: 1
-        	}, function(ret, err) {
-        	    if (ret.status) {
-        			//先取消其他定位
-        			aMapLBS.stopUpdatingLocation();
-        			//先定位经纬度
-        			aMapLBS.singleLocation({
-    	            timeout: 10
-              },function(ret,err){
-                  if (ret.status) {
-        				     alert(JSON.stringify(ret));
-        				     alert("经度："+ret.lon+"\n纬度："+ret.lat);
-        				   	 //$("#longitude").val(ret.lon);
-        				   	 //$("#latitude").val(ret.lat);
-        		   			 //直接定位地址
-        					   /*aMapLBS.singleAddress({
-        					   timeout: 10
-        					   }, function(ret2, err2) {
-        					        if (ret2.status) {
-            					        alert(JSON.stringify(ret2));//获取所属兴趣点名称
-            					        var address = ret2.address.AOIName;
-            					        $("#position").text(ret2.address.AOIName);
-        					        }
-        					  });*/
-        				}
-                });
-        	    }
-        	});
-        }
+       function fnSingleAddress() {
+   			var aMapLBS = api.require('aMapLBS');
+   			aMapLBS.singleAddress({
+   				timeout : 10
+   			}, function(ret, err) {
+   				if (ret.status) {
+            address = ret.formattedAddress;
+   					alert(address);
+   				}
+   			});
+   		}
     </script>
 </body>
 </html>
