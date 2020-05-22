@@ -15,7 +15,13 @@
         <param name="android_api_key" value="315e8aee1cb5671531db4397d5e580de" />
     </feature>
 
-    <content src="index.html" />
+    <!--极光推送-->
+    <feature name="ajpush">
+        <param name="app_key" value="f9652a6231087806accdf49b"/>
+        <param name="channel" value="17d3ea252e685d947a2911ac"/>
+    </feature>
+
+    <content src="./html/tuisong.html" />
     <access origin="*" />
     <preference name="pageBounce" value="false"/>
 	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
