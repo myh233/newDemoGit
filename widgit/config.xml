@@ -15,7 +15,7 @@
         <param name="android_api_key" value="315e8aee1cb5671531db4397d5e580de" />
     </feature>
 
-    <content src="index.html" />
+    <content src="./html/aMapLBS.html" />
     <access origin="*" />
     <preference name="pageBounce" value="false"/>
 	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>
