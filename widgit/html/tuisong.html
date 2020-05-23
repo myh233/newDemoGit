@@ -133,6 +133,13 @@
         //消息监听
         function setListener(){
           var push = api.require('push');
+          push.bind({
+            userName:"123",
+            userId:'432900'
+          },function(ret,err){
+            
+          }
+        )
           push.setListener(
             function(ret,err){
               if(ret){
