@@ -164,6 +164,8 @@
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.identifyIDBack(function(ret) {
+                alert("识别成功");
+                alert(ret.result);
                 alert(JSON.stringify(ret));
             });
           }
