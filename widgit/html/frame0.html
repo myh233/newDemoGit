@@ -222,6 +222,7 @@
      			 }, function(ret, err) {
      				 if (ret.status) {
                address =  ret.address.formattedAddress; //获取的地址
+               alert(address);
                localStorage.setItem("address",address);
                var span = document.getElementById("sp");
                span.innerHTML = "当前位置:<br/>"+address;
