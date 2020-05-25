@@ -145,7 +145,6 @@
 
         //身份证正面识别
         function identifyIDFace() {
-          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -159,7 +158,6 @@
         }
         //身份证背面识别
         function identifyIDBack() {
-          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -176,7 +174,6 @@
         //通用文字识别
 
         function generalAccurateBasicOCR() {
-          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -190,7 +187,6 @@
         }
         //驾驶证识别
         function drivingLicenseOCR(){
-          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
