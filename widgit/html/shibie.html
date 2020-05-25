@@ -65,7 +65,7 @@
 
     function generalAccurateBasicOCR() {
         var baiduAd = api.require('baiduIdentifyOCR');
-        baiduAd.generalAccurateOCR(function(ret) {
+        baiduAd.generalAccurateBasicOCR(function(ret) {
             alert(JSON.stringify(ret));
         });
     }
