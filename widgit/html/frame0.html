@@ -88,19 +88,19 @@
           <p>身份证正面识别</p>
         </div>
       </div>
-      <div id="bt2" onclick="identifyIDBack();reloadPage();">
+      <div id="bt2" onclick="identifyIDBack()">
         <div id="div1">
           <img src="../image/idcard.png"/>
           <p>身份证背面识别</p>
         </div>
       </div>
-      <div id="bt3" onclick="generalAccurateBasicOCR();reloadPage();">
+      <div id="bt3" onclick="generalAccurateBasicOCR()">
         <div id="div1">
           <img src="../image/licenceplateOCR.png"/>
           <p>车牌识别</p>
         </div>
       </div>
-      <div id="bt4" onclick="drivingLicenseOCR();reloadPage();">
+      <div id="bt4" onclick="drivingLicenseOCR()">
         <div id="div1">
           <img src="../image/drivingLicenseOCR.png"/>
           <p>驾驶证识别</p>
@@ -145,6 +145,7 @@
 
         //身份证正面识别
         function identifyIDFace() {
+          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -158,6 +159,7 @@
         }
         //身份证背面识别
         function identifyIDBack() {
+          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -174,6 +176,7 @@
         //通用文字识别
 
         function generalAccurateBasicOCR() {
+          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -187,6 +190,7 @@
         }
         //驾驶证识别
         function drivingLicenseOCR(){
+          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -208,9 +212,9 @@
    				filter : 1
    			});
    		 }
-       //单次地理定位
+       //单次逆地理定位
        function fnSingleAddress() {
-         //reloadPage();
+         reloadPage();
          var username = localStorage.getItem("usna");
          if(username){
            fnConfigManager();
@@ -223,7 +227,6 @@
                localStorage.setItem("address",address);
                var span = document.getElementById("sp");
                span.innerHTML = "当前位置:<br/>"+address;
-     					 //alert(address);
      				 }
      			 });
          }
