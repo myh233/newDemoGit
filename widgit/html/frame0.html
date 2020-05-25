@@ -113,16 +113,16 @@
 
     <script type="text/javascript" src="../script/api.js"></script>
     <script>
-        function sliding() {  //点击滑到左侧页面
-            api.openSlidPane({type: 'left'});
-        }
-        apiready = function () {
-    	    $api.fixStatusBar($api.dom('.header'));
-            api.addEventListener({
-                name: 'keyback'
-            }, function(ret, err){
-                api.closeWidget();
-            });
+      function sliding() {  //点击滑到左侧页面
+          api.openSlidPane({type: 'left'});
+      }
+      apiready = function () {
+  	    $api.fixStatusBar($api.dom('.header'));
+          api.addEventListener({
+              name: 'keyback'
+          }, function(ret, err){
+              api.closeWidget();
+          });
     	};
     </script>
     <script type="text/javascript">

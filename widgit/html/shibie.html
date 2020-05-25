@@ -31,7 +31,7 @@
       <button type="button" name="button" onclick="bdInit()">bdInit</button>
       <button type="button" name="button" onclick="identifyIDFace()">身份证正面</button>
         <button type="button" name="button" onclick="identifyIDBack()">身份证背面</button>
-        <button type="button" name="button" onclick="generalBasicOCR()">通用文字识别</button>
+        <button type="button" name="button" onclick="generalAccurateOCR()">通用文字识别</button>
         <button type="button" name="button" onclick="bankCardOCROnline()">银行卡正面</button>
         <button type="button" name="button" onclick="trainTiketOCR()">火车票识别（仅Android）</button>
         <button type="button" name="button" onclick="qrCodeOCR()">二维码识别（仅Android）</button>
@@ -63,9 +63,9 @@
         });
     }
 
-    function generalBasicOCR() {
+    function generalAccurateOCR() {
         var baiduAd = api.require('baiduIdentifyOCR');
-        baiduAd.generalBasicOCR(function(ret) {
+        baiduAd.generalAccurateOCR(function(ret) {
             alert(JSON.stringify(ret));
         });
     }
