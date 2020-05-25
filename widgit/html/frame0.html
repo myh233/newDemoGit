@@ -82,32 +82,32 @@
     <div id = "photo"><img src="../image/photo.jpg" height="100%" width="100%"/></div>
     <div id="mid">日常功能</div>
     <div class="fction">
-      <div id="bt1" onclick="identifyIDFace()">
+      <div id="bt1" onclick="identifyIDFace();reloadPage();">
         <div id="div1">
           <img src="../image/idcard.png" />
           <p>身份证正面识别</p>
         </div>
       </div>
-      <div id="bt2" onclick="identifyIDBack()">
+      <div id="bt2" onclick="identifyIDBack();reloadPage();">
         <div id="div1">
           <img src="../image/idcard.png"/>
           <p>身份证背面识别</p>
         </div>
       </div>
-      <div id="bt3" onclick="generalAccurateBasicOCR()">
+      <div id="bt3" onclick="generalAccurateBasicOCR();reloadPage();">
         <div id="div1">
           <img src="../image/licenceplateOCR.png"/>
           <p>车牌识别</p>
         </div>
       </div>
-      <div id="bt4" onclick="drivingLicenseOCR()">
+      <div id="bt4" onclick="drivingLicenseOCR();reloadPage();">
         <div id="div1">
           <img src="../image/drivingLicenseOCR.png"/>
           <p>驾驶证识别</p>
         </div>
       </div>
     </div>
-    <div id = "address" onclick="fnSingleAddress()">
+    <div id = "address" onclick="fnSingleAddress();reloadPage()">
       <span id = "sp">当前位置:</span>
     </div>
 
@@ -145,7 +145,6 @@
 
         //身份证正面识别
         function identifyIDFace() {
-          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -159,7 +158,6 @@
         }
         //身份证背面识别
         function identifyIDBack() {
-          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -176,7 +174,6 @@
         //通用文字识别
 
         function generalAccurateBasicOCR() {
-          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -190,7 +187,6 @@
         }
         //驾驶证识别
         function drivingLicenseOCR(){
-          reloadPage();
           var username = localStorage.getItem("usna");
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
@@ -214,7 +210,6 @@
    		 }
        //单次逆地理定位
        function fnSingleAddress() {
-         reloadPage();
          var username = localStorage.getItem("usna");
          if(username){
            fnConfigManager();
