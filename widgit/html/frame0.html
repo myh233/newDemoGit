@@ -65,7 +65,7 @@
           margin:0 auto;
           position:absolute;
     			left:0px;
-    			top:540px;
+    			top:376px;
           height:79px;
     			width:100%;
           font-size:16px;
@@ -210,19 +210,16 @@
    		 }
        //单次逆地理定位
        function fnSingleAddress(){
-         alert("执行了")
          var username = localStorage.getItem("usna");
          if(username){
-           alert("1");
            fnConfigManager();
-           alert("2");
      			 var aMapLBS = api.require('aMapLBS');
      			 aMapLBS.singleAddress({
      				 timeout : 10
      			 }, function(ret, err) {
+             alert(ret.stat)
      				 if (ret.status) {
                address =  ret.address.formattedAddress; //获取的地址
-               alert(address);
                localStorage.setItem("address",address);
                var span = document.getElementById("sp");
                span.innerHTML = "当前位置:<br/>"+address;
