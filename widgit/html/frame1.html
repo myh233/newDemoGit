@@ -7,11 +7,58 @@
     <title>通知</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-    <style>
-        .empty{ text-align: center; padding: 120px 0; }
-    </style>
+
 </head>
 <body>
-    <div class="empty">通知</div>
+    <button onclick="notify()">发送警告信息</button>
+    
+
+    <script type='text/javascript'>
+    apiready = function() {
+        //极光推送监听
+        jpush = api.require('ajpush');
+         api.addEventListener({name:'appintent'}, function(ret,err) {
+          alert('通知被点击，收到数据：\n' + JSON.stringify(ret));//监听通知被点击后收到的数据
+          if(ret && ret.appParam.ajpush){
+              var ajpush = ret.appParam.ajpush;
+              alert(ajpush);
+              var id = ajpush.id;
+              alert(id);
+              var title = ajpush.title;
+              var content = ajpush.content;
+              var extra = ajpush.extra;
+              alert(extra.aaaaa);
+          }
+         })
+      /* api.addEventListener({name:'pause'}, function(ret,err) {
+          onPause();//监听应用进入后台，通知jpush暂停事件
+         })
+
+         api.addEventListener({name:'resume'}, function(ret,err) {
+          onResume();//监听应用恢复到前台，通知jpush恢复事件
+        })*/
+    };
+
+    //自定义推送内容
+    function notify(){
+      //count++;//便于区分计数
+      api.notification({
+        vibrate:[300, 500],
+        //sound:'widget://res/horse.ogg',//自定义声音
+          notify: {
+              title: '危险警告', //标题，默认值为应用名称，只Android有效
+              content: '孝感出现危险信息', //内容，默认值为'有新消息'
+              extra:{}, //传递给通知的数据，在通知被点击后，该数据将通过监听函数回调给网页
+              updateCurrent:false    //是否覆盖更新已有的通知，取值范围true|false。只Android有效
+          }
+      }, function(ret, err){
+          if(ret){
+               alert(JSON.stringify(ret));
+          }else{
+               alert(JSON.stringify(err));
+          }
+      });
+    }
+    </script>
 </body>
 </html>

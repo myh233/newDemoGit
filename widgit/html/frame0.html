@@ -231,23 +231,7 @@
            document.getElementById('sp').innerHTML="当前位置:";
          }
    		 }
-       //极光推送设置
-       var ajpush = api.require('ajpush');
-           if(api.systemType == "android"){
-               ajpush.init(function(ret) {
-                   var param = {alias:'user1',tags:['user']};
-                   ajpush.bindAliasAndTags(param,function(ret) {
-                   });
-                   ajpush.setListener(jpushListener);
-               });
-           }else if(api.systemType == "ios"){
-               ajpush.setListener(jpushListener);
-               var param = {alias:'user2',tags:['user']};
-               ajpush.bindAliasAndTags(param,function(ret) {
-               });
-           }
-           function jpushListener(ret){
-           }
+
     </script>
 </body>
 </html>
