@@ -150,6 +150,8 @@
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.identifyIDFace(function(ret) {
                 alert(JSON.stringify(ret));
+                name1 = ret.result
+                alert(name1);
                 name = ret.IDCardResultfront.name;
                 ethnic = ret.IDCardResultfront.ethnic;
                 alert("识别成功："+name+" "+ethnic);
@@ -166,7 +168,7 @@
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.identifyIDBack(function(ret) {
                 alert("识别成功");
-                alert(ret.result.singDate); //注册日期
+                alert(ret.result.IDCardResultback.singDate); //注册日期
                 alert(JSON.stringify(ret));
             });
           }
@@ -219,7 +221,6 @@
      			 aMapLBS.singleAddress({
      				 timeout : 10
      			 }, function(ret, err) {
-             alert(ret.stat)
      				 if (ret.status) {
                address =  ret.address.formattedAddress; //获取的地址
                localStorage.setItem("address",address);
