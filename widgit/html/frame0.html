@@ -150,6 +150,9 @@
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.identifyIDFace(function(ret) {
                 alert(JSON.stringify(ret));
+                name = ret.IDCardResultfront.name;
+                ethnic = ret.IDCardResultfront.ethnic;
+                alert("识别成功："+name+" "+ethnic);
             });
           }
           else{
@@ -164,7 +167,6 @@
             baiduAd.identifyIDBack(function(ret) {
                 alert("识别成功");
                 alert(ret.result.singDate); //注册日期
-                alert(ret.result.singDate)
                 alert(JSON.stringify(ret));
             });
           }

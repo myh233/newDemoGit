@@ -7,11 +7,20 @@
     <title>通知</title>
     <link rel="stylesheet" type="text/css" href="../css/api.css"/>
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style type="text/css">
+      div{
+        margin:5px;
+        border:0.5px solid #8a8a8a;
+        background-color: #cdcdcd;
+      }
+      button{
+        float: right;
+      }
+    </style>
 </head>
 <body>
-    <button onclick="notify()">发送警告信息</button>
-    
+    <button onclick="notify();add_input();">发送警告信息</button>
 
     <script type='text/javascript'>
     apiready = function() {
@@ -21,44 +30,58 @@
           alert('通知被点击，收到数据：\n' + JSON.stringify(ret));//监听通知被点击后收到的数据
           if(ret && ret.appParam.ajpush){
               var ajpush = ret.appParam.ajpush;
-              alert(ajpush);
               var id = ajpush.id;
-              alert(id);
               var title = ajpush.title;
               var content = ajpush.content;
               var extra = ajpush.extra;
-              alert(extra.aaaaa);
           }
          })
-      /* api.addEventListener({name:'pause'}, function(ret,err) {
-          onPause();//监听应用进入后台，通知jpush暂停事件
-         })
-
-         api.addEventListener({name:'resume'}, function(ret,err) {
-          onResume();//监听应用恢复到前台，通知jpush恢复事件
-        })*/
-    };
-
+    }
     //自定义推送内容
     function notify(){
+      var address = localStorage.getItem("address");
       //count++;//便于区分计数
       api.notification({
         vibrate:[300, 500],
         //sound:'widget://res/horse.ogg',//自定义声音
           notify: {
               title: '危险警告', //标题，默认值为应用名称，只Android有效
-              content: '孝感出现危险信息', //内容，默认值为'有新消息'
+              content: address+"出现危险人员", //内容，默认值为'有新消息'
               extra:{}, //传递给通知的数据，在通知被点击后，该数据将通过监听函数回调给网页
               updateCurrent:false    //是否覆盖更新已有的通知，取值范围true|false。只Android有效
           }
       }, function(ret, err){
           if(ret){
-               alert(JSON.stringify(ret));
+               alert("警告信息发送成功");
           }else{
-               alert(JSON.stringify(err));
+               alert("警告信息发送失败");
           }
       });
     }
+
+    //生成input
+    function add_input(){
+      var address = localStorage.getItem("address");
+      var now = new Date();
+      var year = now.getFullYear(); //得到年份
+      var month = now.getMonth()+1;//得到月份
+      var date = now.getDate();//得到日期
+      var hour = now.getHours();//得到小时
+      var time=year + "年" + month + "月" + date + "日" + " " + hour + "点"
+      var div = document.createElement('div');
+      div.innerHTML = '<div >危险地点：'+address+'</br>时间：'+time+'</div>'
+      document.body.appendChild(div);
+
+      //动态添加id
+      var dlall=document.getElementsByTagName('div');
+      for(i=0;i<dlall.length;i++){
+        dlall[i].id='id_'+i;
+      }
+    }
+
+    /*function remove(id){
+      $("#"+id+"").remove();
+    }*/
     </script>
 </body>
 </html>

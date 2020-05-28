@@ -37,10 +37,6 @@
                         <div class="text-white aui-font-size-16" id="user_name">用户名:</div>
                         <div class="aui-list-item-text text-white aui-font-size-14" id="danwei">单位:</div>
                         <div class="aui-list-item-text text-white aui-font-size-14" id="zhicheng">职称:</div>
-                        <!--<div class="aui-list-item-text text-white">
-                           <div id="zhicheng"><i class="aui-font-size-14"></i>职称:</div>
-                        </div>-->
-                    </div>
                 </div>
             </div>
         </div>
@@ -150,9 +146,7 @@
           },function(ret, err) {
             if(ret.length>0){
                 danwei = ret[0].danwei;
-                //alert(danwei);
                 zhicheng = ret[0].zhicheng;
-                //alert(zhicheng);
                 if(danwei != null){
                   localStorage.setItem("danwei",danwei);
                 }
