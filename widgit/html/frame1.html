@@ -14,13 +14,24 @@
         border:0.5px solid #8a8a8a;
         background-color: #cdcdcd;
       }
-      button{
-        float: right;
+      #bt1{
+        position:fixed;
+        bottom: 5px;
+        height:40px;
+        width:100px;
+        background-image: linear-gradient(#ddd, #87C7D2);
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: .3em;
+        box-shadow: 0 1px white inset;
+        text-align: center;
+        text-shadow: 0 1px 1px black;
+        color:red;
+        font-weight: bold;
       }
     </style>
 </head>
 <body>
-    <button onclick="notify();add_input();">发送警告信息</button>
+    <button id="bt1" onclick="notify();add_input();">发送警告信息</button>
 
     <script type='text/javascript'>
     apiready = function() {
@@ -62,6 +73,7 @@
     //生成input
     function add_input(){
       var address = localStorage.getItem("address");
+      alert(address);
       var now = new Date();
       var year = now.getFullYear(); //得到年份
       var month = now.getMonth()+1;//得到月份
