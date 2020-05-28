@@ -150,8 +150,10 @@
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.identifyIDFace(function(ret) {
                 alert(JSON.stringify(ret));
-                name1 = ret.result
+                name1 = ret.result;
                 alert(name1);
+                name2 = ret.result.IDCardResultfront.name;
+                alert(name2);
                 name = ret.IDCardResultfront.name;
                 ethnic = ret.IDCardResultfront.ethnic;
                 alert("识别成功："+name+" "+ethnic);
