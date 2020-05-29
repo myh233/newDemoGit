@@ -152,14 +152,12 @@
                 name1 = ret.result;
                 name1 = name1.split("=");
                 address=name1[3].split(",")[0];
-                idNumber=name1[4].split(",")[0];
+                idNumber=Number(name1[4].split(",")[0]);
                 birthday=name1[5].split(",")[0];
                 name=name1[6].split(",")[0];
                 gender=name1[7].split(",")[0];
                 ethnic=name1[8].split("}")[0];
 
-                alert(idNumber);
-                alert(name);
                 //数据库查询
                 var model = api.require('model');
             		var query = api.require('query');
@@ -260,15 +258,9 @@
               name1 = ret.result;
               name1 = name1.split(":");
               /*car_number = name1[5];
-              alert(car_number);
-              car_number=name1[5].substr(0,9);
               alert(car_number);*/
-              alert(name1[0]);
-              alert(name1[1]);
-              alert(name1[2]);
-              alert(name1[3]);
-              alert(name1[4]);
-              alert(name1[5]);
+              car_number=name1[5].substr(1,8);
+              alert(car_number);
 
               //数据库查询
               var model = api.require('model');
@@ -310,7 +302,9 @@
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.drivingLicenseOCR(function(ret){
+              alert(JSON.stringify(ret));
               name1 = ret.result;
+              alert(name1)
               name1 = name1.split(":");
               address=name1[3];
               idNumber=name1[4];
