@@ -248,8 +248,7 @@
             alert("请先登录");
           }
         }
-        //通用文字识别
-
+        //车牌识别
         function generalAccurateBasicOCR() {
           var username = localStorage.getItem("usna");
           if(username){
@@ -257,10 +256,7 @@
             baiduAd.generalAccurateBasicOCR(function(ret) {
               name1 = ret.result;
               name1 = name1.split(":");
-              /*car_number = name1[5];
-              alert(car_number);*/
               car_number=name1[5].substr(2,7);
-              alert(car_number);
 
               //数据库查询
               var model = api.require('model');
@@ -274,7 +270,7 @@
                   //console.log(ret.qid);
                   query.whereEqual({
                     qid : ret.qid,
-                    column : 'car_number',
+                    column : 'carNumber',
                     value : car_number
                   });
                   model.findAll({
@@ -303,23 +299,14 @@
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.drivingLicenseOCR(function(ret){
               name1 = ret.result;
-              alert(name1)
               name1 = name1.split(":");
               name=/\"(.+?)\"/.exec(name1[3])[1]; //利用正则匹配
               ExpiryDate=/\"(.+?)\"/.exec(name1[5])[1]; //驾驶证到期时间
-              birthday=/\"(.+?)\"/.exec(name1[7])[1];
-              zhenghao=Number(/\"(.+?)\"/.exec(name1[9])[1]);
-              address=/\"(.+?)\"/.exec(name1[11])[1];
-              nationality=/\"(.+?)\"/.exec(name1[15])[1];
-              gender=/\"(.+?)\"/.exec(name1[19])[1];
-
-              alert(name);
-              alert(ExpiryDate);
-              alert(birthday);
-              alert(zhenghao);
-              alert(address);
-              alert(nationality);
-              alert(gender);
+              birthday=/\"(.+?)\"/.exec(name1[7])[1];  //生日
+              zhenghao=Number(/\"(.+?)\"/.exec(name1[9])[1]);  //证号
+              address=/\"(.+?)\"/.exec(name1[11])[1];  //地址
+              nationality=/\"(.+?)\"/.exec(name1[15])[1];  //名族
+              gender=/\"(.+?)\"/.exec(name1[19])[1];  //性别
 
               //数据库查询
               var model = api.require('model');
@@ -342,7 +329,7 @@
                     value : name
                   });
                   model.findAll({
-                    class : 'Dangerous_idcard',
+                    class : 'Dangerous_license',
                     qid : ret.qid
                   },function(ret, err) {
                     if(ret.length>0){
