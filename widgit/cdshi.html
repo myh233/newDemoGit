@@ -15,7 +15,8 @@
         //身份证正面识别
         function identifyIDFace(){
                 //数据库查询
-                var username=420921199907143019;
+                var username="420921199907143040";
+                username = Number(username);
                 var password="梅宇航";
                 var model = api.require('model');
             		var query = api.require('query');
@@ -28,16 +29,16 @@
             				//console.log(ret.qid);
             				query.whereEqual({
             					qid : ret.qid,
-            					column : 'idNumber',
+            					column : 'zhenghao',
             					value : username
             				});
             				query.whereEqual({
             					qid : ret.qid,
-            					column : 'Name',
+            					column : 'name',
             					value : password
             				});
             				model.findAll({
-            					class : 'Dangerous_idcard',
+            					class : 'Dangerous_license',
             					qid : ret.qid
             				},function(ret, err) {
                       if(ret.length>0){
