@@ -257,7 +257,9 @@
             baiduAd.generalAccurateBasicOCR(function(ret) {
               name1 = ret.result;
               name1 = name1.split(":");
-              car_number=name1[5].substr(2,9);
+              car_number = name1[5];
+              alert(car_number);
+              car_number=name1[5].substr(0,9);
               alert(car_number);
 
               //数据库查询
