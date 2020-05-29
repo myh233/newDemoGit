@@ -154,12 +154,24 @@
                 alert(name1);
                 alert(typeof(name1));
                 name1 = name1.split("=");
-                alert(name[1]);
-                var name2=name1.split('=')[1];
+                //alert(name1[1]);
+                address=name1[3].split(",")[0];
+                idNumber=name1[4].split(",")[0];
+                birthday=name1[5].split(",")[0];
+                name=name1[6].split(",")[0];
+                gender=name1[7].split(",")[0];
+                ethnic=name1[8];
+                alert(address);
+                alert(idNumber);
+                alert(birthday);
+                alert(name);
+                alert(gender);
+                alert(ethnic);
+                /*var name2=name1.split('=')[1];
                 alert(name2);
                 var name3=name2.split(',')[0];
                 //name2 = ret.result.IDCardResultfront.name;
-                alert(name3);
+                alert(name3);*/
                 name = ret.IDCardResultfront.name;
                 ethnic = ret.IDCardResultfront.ethnic;
                 alert("识别成功："+name+" "+ethnic);
