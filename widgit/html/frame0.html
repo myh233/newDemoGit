@@ -157,8 +157,40 @@
                 name=name1[6].split(",")[0];
                 gender=name1[7].split(",")[0];
                 ethnic=name1[8].split("}")[0];
-                
-                alert("识别成功："+name+" "+ethnic);
+
+                //数据库查询
+                var model = api.require('model');
+            		var query = api.require('query');
+            		model.config({
+            			appId : 'A6038101288292',
+            			appKey : '74C42CC5-1778-E823-BCD7-B12A156D2696',
+            			host : 'https://d.apicloud.com'
+            		});query.createQuery(function(ret, err) {
+            			if (ret && ret.qid) {
+            				//console.log(ret.qid);
+            				query.whereEqual({
+            					qid : ret.qid,
+            					column : 'idNumber',
+            					value : idNumber
+            				});
+            				query.whereEqual({
+            					qid : ret.qid,
+            					column : 'Name',
+            					value : name
+            				});
+            				model.findAll({
+            					class : 'Dangerous_idcard',
+            					qid : ret.qid
+            				},function(ret, err) {
+                      if(ret.length>0){
+                        alert("出现危险人员");
+                      }
+                      else{
+                        alert("安全");
+                      }
+            				});
+            			}
+            		});
             });
           }
           else{
@@ -171,9 +203,45 @@
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.identifyIDBack(function(ret) {
-                alert("识别成功");
-                alert(ret.result.IDCardResultback.singDate); //注册日期
-                alert(JSON.stringify(ret));
+              name1 = ret.result;
+              name1 = name1.split("=");
+              singDate=name1[1].split(",")[0];
+              expiryDate=name1[2].split(",")[0];
+              issueAuthority=name1[3].split("}")[0];
+
+              //数据库查询
+              var model = api.require('model');
+              var query = api.require('query');
+              model.config({
+                appId : 'A6038101288292',
+                appKey : '74C42CC5-1778-E823-BCD7-B12A156D2696',
+                host : 'https://d.apicloud.com'
+              });query.createQuery(function(ret, err) {
+                if (ret && ret.qid) {
+                  //console.log(ret.qid);
+                  query.whereEqual({
+                    qid : ret.qid,
+                    column : 'issueAuthority',
+                    value : issueAuthority
+                  });
+                  query.whereEqual({
+                    qid : ret.qid,
+                    column : 'ExpiryDate',
+                    value : expiryDate
+                  });
+                  model.findAll({
+                    class : 'Dangerous_idcard',
+                    qid : ret.qid
+                  },function(ret, err) {
+                    if(ret.length>0){
+                      alert("疑似危险人员，请核对其身份证正面信息");
+                    }
+                    else{
+                      alert("安全");
+                    }
+                  });
+                }
+              });
             });
           }
           else{
@@ -187,7 +255,39 @@
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.generalAccurateBasicOCR(function(ret) {
-                alert(JSON.stringify(ret));
+              name1 = ret.result;
+              name1 = name1.split(":");
+              car_number=name1[5].substr(2,9);
+              alert(car_number);
+
+              //数据库查询
+              var model = api.require('model');
+              var query = api.require('query');
+              model.config({
+                appId : 'A6038101288292',
+                appKey : '74C42CC5-1778-E823-BCD7-B12A156D2696',
+                host : 'https://d.apicloud.com'
+              });query.createQuery(function(ret, err) {
+                if (ret && ret.qid) {
+                  //console.log(ret.qid);
+                  query.whereEqual({
+                    qid : ret.qid,
+                    column : 'car_number',
+                    value : car_number
+                  });
+                  model.findAll({
+                    class : 'Dangerous_car',
+                    qid : ret.qid
+                  },function(ret, err) {
+                    if(ret.length>0){
+                      alert("出现危险车辆");
+                    }
+                    else{
+                      alert("安全车辆");
+                    }
+                  });
+                }
+              });
             });
           }
           else{
@@ -200,7 +300,20 @@
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.drivingLicenseOCR(function(ret){
-               alert(JSON.stringify(ret));
+              name1 = ret.result;
+              name1 = name1.split(":");
+              address=name1[3];
+              idNumber=name1[4];
+              birthday=name1[5];
+              name=name1[6];
+              gender=name1[7];
+              ethnic=name1[8];
+              alert(address);
+              alert(idNumber);
+              alert(birthday);
+              alert(name);
+              alert(gender);
+              alert(ethnic);
             });
           }
           else{
