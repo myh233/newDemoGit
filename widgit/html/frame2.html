@@ -123,6 +123,7 @@
 <script type="text/javascript">
     apiready = function (){  //自动执行函数
           shuaxin();
+          shuaxin2();
     }
     function ceshi(username){
       var model = api.require('model');
@@ -158,6 +159,16 @@
         }
       });
     }
+    function shuaxin2(){
+      danwei = localStorage.getItem("danwei");
+      zhicheng = localStorage.getItem("zhicheng");
+      if(danwei !=null){
+        document.getElementById('danwei').innerHTML="单位:"+danwei;
+      }
+      if(zhicheng !=null){
+        document.getElementById('zhicheng').innerHTML="职称:"+zhicheng;
+      }
+    }
 
     var username = localStorage.getItem("usna");
     function shuaxin(){
@@ -168,14 +179,7 @@
     }
 
 
-    danwei = localStorage.getItem("danwei");
-    zhicheng = localStorage.getItem("zhicheng");
-    if(danwei !=null){
-      document.getElementById('danwei').innerHTML="单位:"+danwei;
-    }
-    if(zhicheng !=null){
-      document.getElementById('zhicheng').innerHTML="职称:"+zhicheng;
-    }
+
 
     function log_out(){
       localStorage.clear();
