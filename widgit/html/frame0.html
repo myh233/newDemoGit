@@ -259,7 +259,7 @@
               name1 = name1.split(":");
               /*car_number = name1[5];
               alert(car_number);*/
-              car_number=name1[5].substr(1,8);
+              car_number=name1[5].substr(2,8);
               alert(car_number);
 
               //数据库查询
@@ -302,22 +302,50 @@
           if(username){
             var baiduAd = api.require('baiduIdentifyOCR');
             baiduAd.drivingLicenseOCR(function(ret){
-              alert(JSON.stringify(ret));
               name1 = ret.result;
               alert(name1)
               name1 = name1.split(":");
-              address=name1[3];
-              idNumber=name1[4];
-              birthday=name1[5];
-              name=name1[6];
-              gender=name1[7];
-              ethnic=name1[8];
-              alert(address);
-              alert(idNumber);
-              alert(birthday);
-              alert(name);
-              alert(gender);
-              alert(ethnic);
+              name=/\"(.+?)\"/.exec(name1[3])[1]; //利用正则匹配
+              ExpiryDate=/\"(.+?)\"/.exec(name1[5])[1]; //驾驶证到期时间
+              birthday=/\"(.+?)\"/.exec(name1[7])[1];
+              zhenghao=Number(/\"(.+?)\"/.exec(name1[9])[1]);
+              address=/\"(.+?)\"/.exec(name1[11])[1];
+              nationality=/\"(.+?)\"/.exec(name1[15])[1];
+              gender=/\"(.+?)\"/.exec(name1[19])[1];
+
+              //数据库查询
+              var model = api.require('model');
+              var query = api.require('query');
+              model.config({
+                appId : 'A6038101288292',
+                appKey : '74C42CC5-1778-E823-BCD7-B12A156D2696',
+                host : 'https://d.apicloud.com'
+              });query.createQuery(function(ret, err) {
+                if (ret && ret.qid) {
+                  //console.log(ret.qid);
+                  query.whereEqual({
+                    qid : ret.qid,
+                    column : 'zhanghao',
+                    value : zhanghao
+                  });
+                  query.whereEqual({
+                    qid : ret.qid,
+                    column : 'name',
+                    value : name
+                  });
+                  model.findAll({
+                    class : 'Dangerous_license',
+                    qid : ret.qid
+                  },function(ret, err) {
+                    if(ret.length>0){
+                      alert("出现危险人员");
+                    }
+                    else{
+                      alert("安全");
+                    }
+                  });
+                }
+              });
             });
           }
           else{
