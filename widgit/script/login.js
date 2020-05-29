@@ -27,18 +27,23 @@ function login(){
 					qid : ret.qid
 				},function(ret, err) {
           if(ret.length>0){
-              url = "frame2.html?name="+username;
-              location.href=url;
-              localStorage.setItem("usna",username);
               danwei = ret[0].danwei;
               zhicheng = ret[0].zhicheng;
               if(danwei != null){
                 localStorage.setItem("danwei",danwei);
               }
+              else{
+                localStorage.removeItem("danwei");
+              }
               if(zhicheng != null){
                 localStorage.setItem("zhicheng",zhicheng);
               }
-
+              else{
+                localStorage.removeItem("zhicheng");
+              }
+              url = "frame2.html?name="+username;
+              location.href=url;
+              localStorage.setItem("usna",username);
               //alert("登录成功")
           }
           else{
