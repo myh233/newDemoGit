@@ -28,8 +28,9 @@ body{
 	left:-70px;
 }
 .text_field{
-    width:300px;
+  width:300px;
 	height:140px;
+	text-align:center;
 }
 .text_field input{
 	height: 30px;
@@ -72,18 +73,18 @@ body{
 }
 #username{
 	position:relative ;
-	left:88px;
+	left:40px;
 	top:-87px;
 
 }
 #password{
 	position:relative;
-	left:88px;
+	left:40px;
 	top:-78px;
 }
 #rpassword{
 	position:relative;
-	left:88px;
+	left:40px;
 	top:-69px;
 }
 /*验证*/

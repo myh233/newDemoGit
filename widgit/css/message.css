@@ -46,7 +46,7 @@ body{
 	background-color:rgba(133,169,167,0.5);
 	border-radius: 5px;
 	position:relative;
-	left:18px;
+	left:90px;
 	top:-3px;
 }
 #zhicheng{
@@ -54,7 +54,7 @@ body{
 	width:50px;
 	position:relative;
 	top:10px;
-	left:18px;
+	left:90px;
 	text-align: center;
 	line-height: 29px; /*文字垂直居中*/
 	background-color:rgba(133,169,167,0.5);
@@ -62,13 +62,13 @@ body{
 }
 #danwei_input{
 	position:relative ;
-	left:68px;
+	left:140px;
 	top:-62px;
 }
 
 #zhicheng_input{
 	position:relative;
-	left:68px;
+	left:140px;
 	top:-49px;
 }
 /*验证*/
@@ -97,9 +97,9 @@ button:active{
 }
 #but_submit{
 	position:relative;
-	left:70px;
+	left:120px;
 }
 #but_cancel{
 	position:relative;
-	left:135px;
+	left:185px;
 }

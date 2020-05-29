@@ -123,7 +123,7 @@
 <script type="text/javascript">
     apiready = function (){  //自动执行函数
           shuaxin();
-          shuaxin2();
+          //shuaxin2();
     }
     function ceshi(username){
       var model = api.require('model');
@@ -159,7 +159,7 @@
         }
       });
     }
-    function shuaxin2(){
+
       danwei = localStorage.getItem("danwei");
       zhicheng = localStorage.getItem("zhicheng");
       if(danwei !=null){
@@ -168,7 +168,7 @@
       if(zhicheng !=null){
         document.getElementById('zhicheng').innerHTML="职称:"+zhicheng;
       }
-    }
+
 
     var username = localStorage.getItem("usna");
     function shuaxin(){
