@@ -308,7 +308,7 @@
               name=/\"(.+?)\"/.exec(name1[3])[1]; //利用正则匹配
               ExpiryDate=/\"(.+?)\"/.exec(name1[5])[1]; //驾驶证到期时间
               birthday=/\"(.+?)\"/.exec(name1[7])[1];
-              zhenghao=parseInt(/\"(.+?)\"/.exec(name1[9])[1]);
+              zhenghao=Number(/\"(.+?)\"/.exec(name1[9])[1]);
               address=/\"(.+?)\"/.exec(name1[11])[1];
               nationality=/\"(.+?)\"/.exec(name1[15])[1];
               gender=/\"(.+?)\"/.exec(name1[19])[1];
