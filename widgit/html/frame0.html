@@ -259,7 +259,7 @@
               name1 = name1.split(":");
               /*car_number = name1[5];
               alert(car_number);*/
-              car_number=name1[5].substr(2,8);
+              car_number=name1[5].substr(2,7);
               alert(car_number);
 
               //数据库查询
@@ -313,6 +313,13 @@
               nationality=/\"(.+?)\"/.exec(name1[15])[1];
               gender=/\"(.+?)\"/.exec(name1[19])[1];
 
+              alert(name);
+              alert(ExpiryDate);
+              alert(birthday);
+              alert(zhenghao);
+              alert(address);
+              alert(nationality);
+              alert(gender);
               //数据库查询
               var model = api.require('model');
               var query = api.require('query');
