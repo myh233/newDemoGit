@@ -158,6 +158,8 @@
                 gender=name1[7].split(",")[0];
                 ethnic=name1[8].split("}")[0];
 
+                alert(idNumber);
+                alert(name);
                 //数据库查询
                 var model = api.require('model');
             		var query = api.require('query');
@@ -257,10 +259,16 @@
             baiduAd.generalAccurateBasicOCR(function(ret) {
               name1 = ret.result;
               name1 = name1.split(":");
-              car_number = name1[5];
+              /*car_number = name1[5];
               alert(car_number);
               car_number=name1[5].substr(0,9);
-              alert(car_number);
+              alert(car_number);*/
+              alert(name1[0]);
+              alert(name1[1]);
+              alert(name1[2]);
+              alert(name1[3]);
+              alert(name1[4]);
+              alert(name1[5]);
 
               //数据库查询
               var model = api.require('model');
