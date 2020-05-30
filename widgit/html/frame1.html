@@ -52,6 +52,7 @@
     function notify(){
       var username = localStorage.getItem("usna");
       if(username){
+        add_input()
         var address = localStorage.getItem("address");
         //count++;//便于区分计数
         api.notification({
