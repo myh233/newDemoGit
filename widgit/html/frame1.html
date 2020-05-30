@@ -50,24 +50,31 @@
     }
     //自定义推送内容
     function notify(){
-      var address = localStorage.getItem("address");
-      //count++;//便于区分计数
-      api.notification({
-        vibrate:[300, 500],
-        //sound:'widget://res/horse.ogg',//自定义声音
-          notify: {
-              title: '危险警告', //标题，默认值为应用名称，只Android有效
-              content: address+"出现危险人员", //内容，默认值为'有新消息'
-              extra:{}, //传递给通知的数据，在通知被点击后，该数据将通过监听函数回调给网页
-              updateCurrent:false    //是否覆盖更新已有的通知，取值范围true|false。只Android有效
-          }
-      }, function(ret, err){
-          if(ret){
-               alert("警告信息发送成功");
-          }else{
-               alert("警告信息发送失败");
-          }
-      });
+      var username = localStorage.getItem("usna");
+      if(username){
+        var address = localStorage.getItem("address");
+        //count++;//便于区分计数
+        api.notification({
+          vibrate:[300, 500],
+          //sound:'widget://res/horse.ogg',//自定义声音
+            notify: {
+                title: '危险警告', //标题，默认值为应用名称，只Android有效
+                content: address+"出现危险人员", //内容，默认值为'有新消息'
+                extra:{}, //传递给通知的数据，在通知被点击后，该数据将通过监听函数回调给网页
+                updateCurrent:false    //是否覆盖更新已有的通知，取值范围true|false。只Android有效
+            }
+        }, function(ret, err){
+            if(ret){
+                 alert("警告信息发送成功");
+            }else{
+                 alert("警告信息发送失败");
+            }
+        });
+      }
+      else{
+        alert("请先登录");
+      }
+
     }
 
     //生成input
